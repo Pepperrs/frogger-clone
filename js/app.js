@@ -58,11 +58,6 @@ var Player = function () {
     this.sprite = 'images/char-pink-girl.png';
 };
 
-Player.prototype.update = function () {
-    //noop
-    //todo: is the update function necessary?
-};
-
 
 Player.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
