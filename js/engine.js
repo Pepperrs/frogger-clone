@@ -82,9 +82,8 @@ var Engine = (function(global) {
     function update(dt) {
         spawnEnemies();
         updateEntities(dt);
-        checkCollisions();
     }
-
+    // spawns new enemies every one second
     function spawnEnemies(){
 
         if ((Date.now() - lastSpawn) > 1000 ){
@@ -93,16 +92,8 @@ var Engine = (function(global) {
         }
 
 
-
-
-
-        //todo: spawn new enemies
-
     }
 
-    function checkCollisions(){
-        //todo: check all elements for collision with player
-    }
 
     /* This is called by the update function and loops through all of the
      * objects within your allEnemies array as defined in app.js and calls

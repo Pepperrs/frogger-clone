@@ -2,9 +2,11 @@
 var Enemy = function () {
     this.speed = Math.ceil(Math.random() * 5);
 
-    this.x = -101;
-    this.y = -40 + Math.ceil(Math.random() * 3) * 83;
+    this.x = -90;
+    this.y = 50 + Math.ceil(Math.random() * 3) * 83;
 
+    this.width = 100;
+    this.height = 80;
     //decide the bugs heading and decide its image and starting point accordingly
     if (Math.round(Math.random()) > 0.5) {
         this.heading = 1; // goes right
@@ -48,8 +50,10 @@ Enemy.prototype.render = function () {
 var Player = function () {
 
     //set the start grid
-    this.x = 202;
-    this.y = -40 + 5 * 83;
+    this.x = 213;
+    this.y = 50 + 5 * 83;
+    this.width = 80;
+    this.height = 80;
     //set the character image
     this.sprite = 'images/char-pink-girl.png';
 };
@@ -71,13 +75,13 @@ Player.prototype.handleInput = function (input) {
             (this.x > 50 ) ? this.x = this.x - 101 : console.log('oob');
             break;
         case "up":
-            (this.y > 50 ) ? this.y = this.y - 83 : window.alert("YOU WIN!");
+            (this.y > 150 ) ? this.y = this.y - 83 : window.alert("YOU WIN!");
             break;
         case "right":
             (this.x < 404 ) ? this.x = this.x + 101 : console.log('oob');
             break;
         case "down":
-            (this.y < 334 ) ? this.y = this.y + 83 : console.log('oob');
+            (this.y < 390 ) ? this.y = this.y + 83 : console.log('oob');
             break;
         default:
             console.log('false input');
