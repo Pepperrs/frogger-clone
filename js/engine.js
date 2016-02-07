@@ -14,7 +14,7 @@
  * a little simpler to work with.
  */
 
-var Engine = (function(global) {
+var Engine = (function (global) {
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
      * set the canvas elements height/width and add it to the DOM.
@@ -24,7 +24,7 @@ var Engine = (function(global) {
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
         lastTime,
-        lastSpawn =0;
+        lastSpawn = 0;
 
     canvas.width = 505;
     canvas.height = 606;
@@ -83,10 +83,11 @@ var Engine = (function(global) {
         spawnEnemies();
         updateEntities(dt);
     }
-    // spawns new enemies every one second
-    function spawnEnemies(){
 
-        if ((Date.now() - lastSpawn) > 1000 ){
+    // spawns a enemie every one second
+    function spawnEnemies() {
+
+        if ((Date.now() - lastSpawn) > 1000) {
             lastSpawn = Date.now();
             allEnemies.push(enemy1 = new Enemy());
         }
@@ -103,7 +104,7 @@ var Engine = (function(global) {
      * render methods.
      */
     function updateEntities(dt) {
-        allEnemies.forEach(function(enemy) {
+        allEnemies.forEach(function (enemy) {
             enemy.update(dt);
         });
     }
@@ -158,10 +159,10 @@ var Engine = (function(global) {
         /* Loop through all of the objects within the allEnemies array and call
          * the render function you have defined.
          */
-        allEnemies.forEach(function(enemy) {
+        allEnemies.forEach(function (enemy) {
             enemy.render();
         });
-
+        //renders the player
         player.render();
     }
 
@@ -183,7 +184,6 @@ var Engine = (function(global) {
         'images/grass-block.png',
         'images/enemy-bug.png',
         'images/enemy-bug-reverse.png',
-        'images/char-boy.png',
         'images/char-pink-girl.png'
     ]);
     Resources.onReady(init);
