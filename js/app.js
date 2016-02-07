@@ -2,23 +2,24 @@
 var Enemy = function () {
     this.speed = Math.ceil(Math.random() * 5);
 
-    //decide the bugs heading
     this.x = -101;
     this.y = -40 + Math.ceil(Math.random() * 3)  * 83;
-    this.heading;
+
+    //decide the bugs heading and decide its image and starting point accordingly
     if (Math.round(Math.random()) > 0.5){
         this.heading = 1 // goes right
+        this.sprite = 'images/enemy-bug.png';
     }
     else{
         this.heading =-1 //goes left
         this.x = this.x + 707;
+        this.sprite = 'images/enemy-bug-reverse.png';
     }
 
     //determine the bugs starting position
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-    this.sprite = 'images/enemy-bug.png';
 };
 
 // Update the enemy's position, required method for game
