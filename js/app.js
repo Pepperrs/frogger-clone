@@ -44,16 +44,16 @@ Player.prototype.handleInput = function (input) {
     console.log(input);
     switch (input) {
         case "left":
-            this.x = this.x - 101;
+            (this.x > 50 ) ? this.x = this.x - 101 : console.log('oob');
             break;
         case "up":
-            this.y = this.y - 83;
+            (this.y > 0 ) ? this.y = this.y - 83 : console.log('oob');
             break;
         case "right":
-            this.x = this.x + 101;
+            (this.x < 404 ) ? this.x = this.x + 101 : console.log('oob');
             break;
         case "down":
-            this.y = this.y + 83;
+            (this.y < 334 ) ? this.y = this.y + 83 : console.log('oob');
             break;
         default:
             console.log('false input');
