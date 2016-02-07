@@ -43,7 +43,7 @@ Enemy.prototype.update = function (dt) {
         player.x + player.width > this.x &&
         player.y < this.y + this.height &&
         player.height + player.y > this.y) {
-        console.log("collision!")
+        endGame(false);
     }
 
 };
@@ -66,25 +66,26 @@ var Player = function () {
     this.sprite = 'images/char-pink-girl.png';
 };
 
-
+// Draws the player
 Player.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-
+// handles Player input and ends the game, when the user has arrived at the top level
+//prevents the player to go out of bounds
 Player.prototype.handleInput = function (input) {
     switch (input) {
         case "left":
-            (this.x > 50 ) ? this.x = this.x - 101 : console.log('oob');
+            if (this.x > 50) this.x = this.x - 101;
             break;
         case "up":
-            (this.y > 150 ) ? this.y = this.y - 83 : window.alert("YOU WIN!");
+            (this.y > 150 ) ? this.y = this.y - 83 : endGame(true);
             break;
         case "right":
-            (this.x < 404 ) ? this.x = this.x + 101 : console.log('oob');
+            if (this.x < 404) this.x = this.x + 101;
             break;
         case "down":
-            (this.y < 390 ) ? this.y = this.y + 83 : console.log('oob');
+            if (this.y < 390) this.y = this.y + 83;
             break;
         default:
             console.log('false input');
@@ -93,30 +94,44 @@ Player.prototype.handleInput = function (input) {
 
 };
 
-// Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
 var allEnemies = [];
+// Place the player object in a variable called player
 var player = new Player();
 
-
+//Allows mobile users to play the game
 var goLeft = function () {
-    player.handleInput('left')
+    player.handleInput('left');
 
+//Allows mobile users to play the game
 };
 var goUp = function () {
-    player.handleInput('up')
+    player.handleInput('up');
 
+//Allows mobile users to play the game
 };
 var goDown = function () {
-    player.handleInput('down')
+    player.handleInput('down');
 
+//Allows mobile users to play the game
 };
 var goRight = function () {
     player.handleInput('right')
 
 };
 
+// This function provides means to reload the page with positive or negative endings
+var endGame = function (success) {
+    if (success) {
+        window.alert("YOU WIN!");
+        location.reload();
+    }
+    else {
+        window.alert("YOU LOOSE!");
+        location.reload();
+    }
+
+};
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function (e) {
