@@ -26,8 +26,8 @@ Enemy.prototype.render = function () {
 // Player Class
 var Player = function () {
     //todo: write me!
-    this.x = 0;
-    this.y = -40;
+    this.x = 202;
+    this.y = -40 + 5*83;
     this.sprite = 'images/char-pink-girl.png';
 };
 
