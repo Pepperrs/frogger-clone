@@ -32,6 +32,7 @@ var Player = function () {
 };
 
 Player.prototype.update = function () {
+
     //todo: write me!
 
 };
@@ -39,7 +40,25 @@ Player.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 
 };
-Player.prototype.handleInput = function () {
+Player.prototype.handleInput = function (input) {
+    console.log(input);
+    switch (input) {
+        case "left":
+            this.x--;
+            break;
+        case "up":
+            this.y++;
+            break;
+        case "right":
+            this.x++;
+            break;
+        case "down":
+            this.y--;
+            break;
+        default:
+            console.log('false input');
+            break;
+    }
     //todo: write me!
 
 };
