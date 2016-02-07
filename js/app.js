@@ -28,17 +28,19 @@ Enemy.prototype.render = function () {
 
 // Player Class
 var Player = function () {
-    //todo: write me!
+
+    //set the start grid
     this.x = 202;
     this.y = -40 + 5 * 83;
+    //set the character image
     this.sprite = 'images/char-pink-girl.png';
 };
 
 Player.prototype.update = function () {
-
-    //todo: write me!
-
+ //noop
 };
+
+
 Player.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 
