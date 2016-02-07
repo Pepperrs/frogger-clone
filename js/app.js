@@ -37,6 +37,14 @@ Enemy.prototype.update = function (dt) {
             allEnemies.splice(indexOfOutOfBoundsEnemy, 1);
         }
     }
+    // This code tests for collisions of the current enemy and the player
+    // the code has been copied from https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+    if (player.x < this.x + this.width &&
+        player.x + player.width > this.x &&
+        player.y < this.y + this.height &&
+        player.height + player.y > this.y) {
+        console.log("collision!")
+    }
 
 };
 
