@@ -1,8 +1,8 @@
 // Enemies our player must avoid
 var Enemy = function () {
 
-    this.x=0;
-    this.y=0;
+    this.x = 0;
+    this.y = -40;
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
@@ -26,8 +26,8 @@ Enemy.prototype.render = function () {
 // Player Class
 var Player = function () {
     //todo: write me!
-    this.x=0;
-    this.y=0;
+    this.x = 0;
+    this.y = -40;
     this.sprite = 'images/char-pink-girl.png';
 };
 
@@ -44,16 +44,16 @@ Player.prototype.handleInput = function (input) {
     console.log(input);
     switch (input) {
         case "left":
-            this.x--;
+            this.x = this.x - 101;
             break;
         case "up":
-            this.y++;
+            this.y = this.y - 83;
             break;
         case "right":
-            this.x++;
+            this.x = this.x + 101;
             break;
         case "down":
-            this.y--;
+            this.y = this.y + 83;
             break;
         default:
             console.log('false input');
@@ -68,8 +68,6 @@ Player.prototype.handleInput = function (input) {
 // Place the player object in a variable called player
 var allEnemies = [enemy1 = new Enemy()];
 var player = new Player();
-
-
 
 
 // This listens for key presses and sends the keys to your
