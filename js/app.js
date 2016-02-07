@@ -85,6 +85,23 @@ var allEnemies = [enemy1 = new Enemy()];
 var player = new Player();
 
 
+var goLeft = function () {
+    player.handleInput('left')
+
+};
+var goUp = function () {
+    player.handleInput('up')
+
+};
+var goDown = function () {
+    player.handleInput('down')
+
+};
+var goRight = function () {
+    player.handleInput('right')
+
+};
+
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function (e) {
