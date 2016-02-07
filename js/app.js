@@ -1,6 +1,7 @@
 // Enemies our player must avoid
 var Enemy = function () {
-    this.speed = Math.round(Math.random() * 10);
+    this.speed = Math.ceil(Math.random() * 5);
+    console.log(this.speed);
     this.x = 0;
     this.y = -40 + Math.ceil(Math.random() * 3)  * 83;
 
@@ -12,6 +13,8 @@ var Enemy = function () {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function (dt) {
+    var difficulty = 101;
+    this.x = this.x + (this.speed*dt)*difficulty;
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
