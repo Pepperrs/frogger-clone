@@ -23,7 +23,8 @@ var Engine = (function(global) {
         win = global.window,
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
-        lastTime;
+        lastTime,
+        lastSpawn =0;
 
     canvas.width = 505;
     canvas.height = 606;
@@ -79,12 +80,22 @@ var Engine = (function(global) {
      * on the entities themselves within your app.js file).
      */
     function update(dt) {
-        spawnEnemies(dt);
+        spawnEnemies();
         updateEntities(dt);
         checkCollisions();
     }
 
-    function spawnEnemies(dt){
+    function spawnEnemies(){
+
+        if ((Date.now() - lastSpawn) > 1000 ){
+            lastSpawn = Date.now();
+            allEnemies.push(enemy1 = new Enemy());
+        }
+
+
+
+
+
         //todo: spawn new enemies
 
     }
