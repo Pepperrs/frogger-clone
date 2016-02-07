@@ -79,8 +79,18 @@ var Engine = (function(global) {
      * on the entities themselves within your app.js file).
      */
     function update(dt) {
+        spawnEnemies(dt);
         updateEntities(dt);
-        // checkCollisions();
+        checkCollisions();
+    }
+
+    function spawnEnemies(dt){
+        //todo: spawn new enemies
+
+    }
+
+    function checkCollisions(){
+        //todo: check all elements for collision with player
     }
 
     /* This is called by the update function and loops through all of the

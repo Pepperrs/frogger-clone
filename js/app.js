@@ -3,15 +3,15 @@ var Enemy = function () {
     this.speed = Math.ceil(Math.random() * 5);
 
     this.x = -101;
-    this.y = -40 + Math.ceil(Math.random() * 3)  * 83;
+    this.y = -40 + Math.ceil(Math.random() * 3) * 83;
 
     //decide the bugs heading and decide its image and starting point accordingly
-    if (Math.round(Math.random()) > 0.5){
-        this.heading = 1 // goes right
+    if (Math.round(Math.random()) > 0.5) {
+        this.heading = 1; // goes right
         this.sprite = 'images/enemy-bug.png';
     }
-    else{
-        this.heading =-1 //goes left
+    else {
+        this.heading = -1; //goes left
         this.x = this.x + 707;
         this.sprite = 'images/enemy-bug-reverse.png';
     }
@@ -26,10 +26,16 @@ var Enemy = function () {
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function (dt) {
     var difficulty = 101;
-    this.x = this.x + (this.speed*dt)*difficulty*this.heading;
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
+    this.x = this.x + (this.speed * dt) * difficulty * this.heading;
+
+    // This removes the Enemy if it has passed the canvas
+    if (this.x < -110 || this.x > 610) {
+        var indexOfOutOfBoundsEnemy = allEnemies.indexOf(this);
+        if (indexOfOutOfBoundsEnemy > -1) {
+            allEnemies.splice(indexOfOutOfBoundsEnemy, 1);
+        }
+    }
+
 };
 
 // Draw the enemy on the screen, required method for game
@@ -49,14 +55,16 @@ var Player = function () {
 };
 
 Player.prototype.update = function () {
- //noop
+    //noop
+    //todo: is the update function necessary?
 };
 
 
 Player.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-
 };
+
+
 Player.prototype.handleInput = function (input) {
     switch (input) {
         case "left":
@@ -75,7 +83,6 @@ Player.prototype.handleInput = function (input) {
             console.log('false input');
             break;
     }
-    //todo: write me!
 
 };
 
