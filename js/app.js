@@ -41,13 +41,12 @@ Player.prototype.render = function () {
 
 };
 Player.prototype.handleInput = function (input) {
-    console.log(input);
     switch (input) {
         case "left":
             (this.x > 50 ) ? this.x = this.x - 101 : console.log('oob');
             break;
         case "up":
-            (this.y > 0 ) ? this.y = this.y - 83 : console.log('oob');
+            (this.y > 50 ) ? this.y = this.y - 83 : window.alert("YOU WIN!");
             break;
         case "right":
             (this.x < 404 ) ? this.x = this.x + 101 : console.log('oob');
