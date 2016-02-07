@@ -1,8 +1,8 @@
 // Enemies our player must avoid
 var Enemy = function () {
-
+    this.speed = Math.round(Math.random() * 10);
     this.x = 0;
-    this.y = -40;
+    this.y = -40 + Math.ceil(Math.random() * 3)  * 83;
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
@@ -27,7 +27,7 @@ Enemy.prototype.render = function () {
 var Player = function () {
     //todo: write me!
     this.x = 202;
-    this.y = -40 + 5*83;
+    this.y = -40 + 5 * 83;
     this.sprite = 'images/char-pink-girl.png';
 };
 
