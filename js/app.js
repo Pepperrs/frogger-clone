@@ -1,9 +1,20 @@
 // Enemies our player must avoid
 var Enemy = function () {
     this.speed = Math.ceil(Math.random() * 5);
-    console.log(this.speed);
-    this.x = 0;
+
+    //decide the bugs heading
+    this.x = -101;
     this.y = -40 + Math.ceil(Math.random() * 3)  * 83;
+    this.heading;
+    if (Math.round(Math.random()) > 0.5){
+        this.heading = 1 // goes right
+    }
+    else{
+        this.heading =-1 //goes left
+        this.x = this.x + 707;
+    }
+
+    //determine the bugs starting position
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
@@ -14,7 +25,7 @@ var Enemy = function () {
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function (dt) {
     var difficulty = 101;
-    this.x = this.x + (this.speed*dt)*difficulty;
+    this.x = this.x + (this.speed*dt)*difficulty*this.heading;
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
