@@ -127,7 +127,7 @@ var endGame = function (success) {
         location.reload();
     }
     else {
-        window.alert("YOU LOOSE!");
+        window.alert("It's a bug not a feature.");
         location.reload();
     }
 
